@@ -1,0 +1,41 @@
+.loginFormContainer {
+    max-width: 400pc;
+    margin: auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1.5rem;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #f53d3d;
+}
