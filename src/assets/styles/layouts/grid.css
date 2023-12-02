@@ -1,0 +1,41 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates as many 200px wide columns as can fit in the container */
+    grid-gap: 16px; /* Space between grid items */
+    padding: 16px; /* Padding around the grid */
+    margin: 0 auto; /* Center the grid horizontally */
+    max-width: 1200px; /* Maximum width of the grid */
+}
+
+.gridItem {
+    background: #fff; /* Background color for the grid items */
+    border-radius: 8px; /* Rounded corners for grid items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
+    overflow: hidden; /* Ensures the content doesn't spill outside the border-radius */
+    display: flex; /* Using flexbox for internal grid item layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+/* If you want a specific aspect ratio for images */
+.gridItem img {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Keep the aspect ratio */
+    aspect-ratio: 16 / 9; /* Set a fixed aspect ratio if needed */
+}
+
+.gridItem h2 {
+    margin: 8px; /* Margin around the title */
+    font-size: 1.5rem; /* Larger font size for titles */
+}
+
+.gridItem p {
+    margin: 8px; /* Margin around paragraphs */
+    font-size: 1rem; /* Standard font size for text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust column size for smaller screens */
+    }
+}

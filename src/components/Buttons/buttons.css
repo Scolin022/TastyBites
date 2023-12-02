@@ -1,0 +1,35 @@
+/* .Exit-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: grey;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+} */
+
+.exitButton {
+    position: absolute;
+    top: 16px; /* Spacing from the top */
+    right: 16px; /* Spacing from the right */
+    background: #532828; /* Modern-looking red background */
+    color: white; /* White color for the X */
+    border: none;
+    border-radius: 30%; /* Circle shape */
+    width: 2.5rem; /* Width of the button */
+    height: 2.3rem; /* Height of the button */
+    font-size: 24px; /* Large font size for the X */
+    line-height: 32px; /* Center the X vertically */
+    text-align: center; /* Center the X horizontally */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none; /* Prevent text selection */
+}
+
+.exitButton:hover {
+    background: #a35d5d; /* Slightly darker red on hover for feedback */
+}

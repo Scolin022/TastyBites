@@ -1,0 +1,84 @@
+/* USED TO BE RECIPEMODAL.CSS */
+
+.recipeImg {
+  background-color: blue;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 80%;
+  justify-content: center;
+  padding: 2rem;
+  width: 70vh;
+  /* Adjust width to 87% of the viewport width */
+  height: 75vh;
+  /* Adjust height to 87% of the viewport height */
+  font-size: calc(2px + 2vmin);
+  color: white;
+}
+
+.recipe-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ACTUAL WINDOW FOR SHOWING RECIPE */
+.modalContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 87%; /* Adjust width to 87% of the viewport width */
+  height: 87vh; /* Adjust height to 87% of the viewport height */
+  overflow-y: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the modal */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Above the backdrop */
+}
+
+
+
+.modalBackdrop {
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  /* .Modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    z-index: 1001;
+  } */
+  
+
+/* .modal-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.recipe-content {
+    position: relative;
+    z-index: 2;
+} */
