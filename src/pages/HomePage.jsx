@@ -1,7 +1,7 @@
 /* THIS PAGE IS THE HOME PAGE THAT DISPLAYS ALL RECIPES */
 
 import { useState } from 'react';
-import recipesData from '../data/recipes.json';
+import { recipesData } from '../data/recipes';
 import RecipeClicked from '../components/Recipe/RecipeClicked';
 
 // Global CSS Styles //
@@ -28,16 +28,14 @@ function HomePage() {
     };
 
     return (
-      <div>
-        <div>
-          <h1>Recipes</h1>
-        </div>
-        <div className="gridContainer">
+      <div className="main">
+          <div className="categoryBar">
+            {/* Category bar component */}
+          </div>
           {recipes.map((recipe) => (
             <div className={styles.recipeContainer} key={recipe.id} onClick={() => openRecipe(recipe)}>
               
-              <img src={require(`./../../assets/images/${recipe.image}`).default} alt={"finished " + recipe.name + " recipe"} />
-              LEFT OFF TRYING TO DYNAMICALLY RENDER IMAGES, BUT GOT AN ERROR. WAS IN THE MIDDLE OF ASKING CHATGBT
+              <img src={require(`./../assets/images/${recipe.image}.jpg`)} alt={"finished " + recipe.name + " recipe"} />
 
 
               <h2>{recipe.name}</h2>
@@ -51,7 +49,6 @@ function HomePage() {
           {selectedRecipe && ( 
               <RecipeClicked recipe={selectedRecipe} onClose={closeRecipe} />
           )}
-        </div>
       </div>
     );
 }

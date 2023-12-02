@@ -8,21 +8,24 @@ import LoginPage from './pages/LoginPage';
 import './assets/styles/base/reset.css'; 
 import './assets/styles/base/theme.css'; 
 import './assets/styles/base/typography.css';
+import './assets/styles/layouts/grid.css';
 // Local CSS Styles //
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/SavedRecipesPage" element={<SavedRecipesPage />} />
-          <Route path="/LoginPage" element={<LoginPage />} />
-        </Routes>
-      </div>
-      <div>
-        <Footer />
+      <div className="App, gridContainer">
+        <div className="header">
+          <Header/>
+        </div>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/SavedRecipesPage" element={<SavedRecipesPage />} />
+            <Route path="/LoginPage" element={<LoginPage />} />
+          </Routes>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     </Router>
   );

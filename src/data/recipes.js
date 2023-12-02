@@ -1,4 +1,4 @@
-[
+export const recipesData = [
     {
         "id": 1,
         "name": "Spaghetti Carbonara",
@@ -7,7 +7,7 @@
             { "name": "Eggs", "quantity": "4" }
         ],
         "difficulty": "Medium",
-        "image": "test.jpg",
+        "image": "test",
         "instructions": "Cook pasta. Mix with eggs and cheese.",
         "cookTime": "30 minutes",
         "prepTime": "15 minutes"
@@ -21,7 +21,7 @@
         { "name": "Fettuccine Pasta", "quantity": "500g" }
         ],
         "difficulty": "Easy",
-        "image": "test.jpg",
+        "image": "test2",
         "instructions": "Cook chicken, prepare sauce, boil pasta, mix together.",
         "cookTime": "45 minutes",
         "prepTime": "15 minutes"
@@ -35,7 +35,7 @@
         { "name": "Bell Pepper", "quantity": "1 cup" }
         ],
         "difficulty": "Medium",
-        "image": "test.jpg",
+        "image": "test",
         "instructions": "Chop vegetables, stir fry with seasoning.",
         "cookTime": "30 minutes",
         "prepTime": "20 minutes"
@@ -49,7 +49,7 @@
         { "name": "Milk", "quantity": "1 cup" }
         ],
         "difficulty": "Easy",
-        "image": "test.jpg",
+        "image": "test",
         "instructions": "Mix ingredients, pour batter on griddle, flip once.",
         "cookTime": "15 minutes",
         "prepTime": "10 minutes"

@@ -1,37 +1,66 @@
+/** THIS PAGE IS FOR STYLING LAYOUTS ON PAGES WITH GRID. **/
+
+/* 2 GRID CONTAINERS SO FAR TO USE */
+/* 
+- gridContainer for all pages
+    -- has a header, main, & footer
+- gridGallery (for recipes on homePage and savedRecipes pages) <-- STILL NEEDS CREATED
+    -- .containerName {
+            align-content: stretch; <-- change if needed
+        }
+*/
+
+.header {
+    grid-area: header;
+}
+
+.footer {
+    grid-area: footer;
+}
+.main {
+    grid-area: main;
+}
+
+.categoryBar {
+    grid-area: category;
+    grid-column-start: 2;
+    grid-column-end: five;
+    grid-row-start: row1-start;
+    grid-row-end: 3;
+}
+
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates as many 200px wide columns as can fit in the container */
-    grid-gap: 16px; /* Space between grid items */
-    padding: 16px; /* Padding around the grid */
-    margin: 0 auto; /* Center the grid horizontally */
-    max-width: 1200px; /* Maximum width of the grid */
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header header header header"
+        /* "main main . sidebar" */
+        "main main main main"
+        "footer footer footer footer";
+    /* grid-template-rows: [row1-start] auto [row1-end] 100px [third-line] auto [last-line]; */
+}
+
+/* .gridContainer {
+    grid-template-columns: [first] 10% [line2] 20% [line3] auto [col4-start] 1fr [five] 1fr [end];
+    grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
 }
 
 .gridItem {
-    background: #fff; /* Background color for the grid items */
-    border-radius: 8px; /* Rounded corners for grid items */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
-    overflow: hidden; /* Ensures the content doesn't spill outside the border-radius */
-    display: flex; /* Using flexbox for internal grid item layout */
-    flex-direction: column; /* Stack children vertically */
+
 }
 
-/* If you want a specific aspect ratio for images */
 .gridItem img {
-    width: 100%; /* Full width of the container */
-    height: auto; /* Keep the aspect ratio */
-    aspect-ratio: 16 / 9; /* Set a fixed aspect ratio if needed */
+
 }
 
 .gridItem h2 {
-    margin: 8px; /* Margin around the title */
-    font-size: 1.5rem; /* Larger font size for titles */
+
 }
 
 .gridItem p {
-    margin: 8px; /* Margin around paragraphs */
-    font-size: 1rem; /* Standard font size for text */
-}
+
+} */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
