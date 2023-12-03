@@ -4,6 +4,7 @@ import Footer from './components/Common/Footer';
 import HomePage from './pages/HomePage';
 import SavedRecipesPage from './pages/SavedRecipesPage';
 import LoginPage from './pages/LoginPage';
+import ContactPage from './components/Forms/ContactForm';
 // Global CSS Styles //
 import './assets/styles/base/reset.css'; 
 import './assets/styles/base/theme.css'; 
@@ -18,11 +19,12 @@ function App() {
         <div className="header">
           <Header/>
         </div>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/SavedRecipesPage" element={<SavedRecipesPage />} />
-            <Route path="/LoginPage" element={<LoginPage />} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/SavedRecipesPage" element={<SavedRecipesPage />} />
+          <Route path="/LoginPage" element={<LoginPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
         <div className="footer">
           <Footer />
         </div>
