@@ -4,12 +4,12 @@ import Footer from './components/Common/Footer';
 import HomePage from './pages/HomePage';
 import SavedRecipesPage from './pages/SavedRecipesPage';
 import LoginPage from './pages/LoginPage';
-import ContactPage from './components/Forms/ContactForm';
+import SignUpPage from './pages/SignUpPage';
 // Global CSS Styles //
-import './assets/styles/base/reset.css'; 
-import './assets/styles/base/theme.css'; 
-import './assets/styles/base/typography.css';
-import './assets/styles/layouts/grid.css';
+// import './assets/styles/base/reset.css'; 
+// import './assets/styles/base/theme.css'; 
+// import './assets/styles/base/typography.css';
+// import './assets/styles/layouts/grid.css';
 // Local CSS Styles //
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/SavedRecipesPage" element={<SavedRecipesPage />} />
           <Route path="/LoginPage" element={<LoginPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/SignUpPage" element={<SignUpPage />} />
         </Routes>
         <div className="footer">
           <Footer />

@@ -1,54 +1,56 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // initalize 'navigate' before using
 import './../../assets/styles/layouts/form.css';
 
 function LoginForm() {
     const [credentials, setCredentials] = useState({ username: '', password: '' });
     const [errors, setErrors] = useState({});
-    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [setLoggedIn] = useState(false);
+    const navigate = useNavigate(); 
 
     // Handle Input Changes
     const handleChange = (event) => {
-        // the '...' in front of 'credentials' creates a new object that copies
-        // key-value pairs from the 'credentials' object defined above
         setCredentials({ ...credentials, [event.target.id]: event.target.value });
     };                                   // ^ updates property in new object w/ id to
                                          // new inputs made by user
-    {
-    /* 
-        So, in the code, when you use
-        { ...credentials, [event.target.id]: event.target.value },
-        you're saying, "Keep everything in my credentials state as it is, but update just the
-        username or password with the new value I just typed in."
-    */
-    }
-
 
     // Validate Credentials
     const validate = () => {
-        let tempErrors = {}; // creates empty object to store validation errors
+        let tempErrors = {}; // empty object to store validation errors
         if (credentials.username.length < 3) tempErrors.username = "Username must be at least 3 characters";
-        setErrors(tempErrors);
-        return Object.keys(tempErrors).length === 0;
+        setErrors(tempErrors); // updates 'errors' state with 'tempErrors' object
+        return Object.keys(tempErrors).length === 0; // returns true if no errors ('tempErrors' is empty), returns false if finds errors
+        // ^ decides whether to submit or display errors
     };
 
-    // Handle form submission
+    // Handles Form's Submission Process
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        if (validate()) {
-            const response = await fetch('path_to_php_login_script', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(credentials),
-            });
-            // Process server response
-            // Set formSubmitted state based on response
-        }
-    };
+        event.preventDefault(); // prevents default form submit (would reload page)
+    
+        if (validate()) { // checks if form data is valid: if not stops process
+            try {
+                const response = await fetch('path_to_php_login_script', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(credentials), // Send credentials as JSON
+                });
+                // Logic Based on Successful Response
+                if (response.ok) { // checks if response status is 'OK' (status code 200-299)
+                    // const data = await response.json(); // Parse JSON response
 
-    // Show submission message if form is submitted
-    if (formSubmitted) {
-        return <div>Thank you for submitting your information. We have processed your account successfully</div>;
-    }
+                    setLoggedIn(true);
+                    navigate('/dashboard'); // redirects after sucessful login (using react-router, for example)
+                    
+                } else { // gets error info & updates state to show error message
+                    const errorData = await response.json();
+                    setErrors({ form: errorData.message || 'Login failed. Please try again.' }); // set error message from server, or a default one
+                }
+            } catch (error) { // updates state w/ message for network errors/unexpected issues during fetch operation
+                console.error('Login error:', error); // Optional: log the error
+                setErrors({ form: 'An unexpected error occurred. Please try again later.' });
+            }
+        }
+    };    
 
     // JSX for the form
     return (
@@ -64,7 +66,17 @@ function LoginForm() {
                     onChange={handleChange}
                     required
                 />
+
+
+
+
+
                 {errors.username && <span>{errors.username}</span>}
+
+
+
+
+
 
                 <label htmlFor="password">Password</label>
                 <input
@@ -82,7 +94,3 @@ function LoginForm() {
 }
 
 export default LoginForm;
-
-    // handleChange & handleSubmit FUNCTIONS GO HERE //
-    // handleChange: manages input changes, updating state with user input
-    // handleSubmit: handles form submission, often involves data processing or validation
