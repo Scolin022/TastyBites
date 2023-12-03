@@ -1,72 +1,46 @@
-import { useState } from 'react'; 
-import './../../assets/styles/layouts/form.css';
+/* THIS IS THE CONTACT FORM SUBMISSION FUNCTIONALITY AND FORM STRUCTRE TO
+ BE DISPLAYED TO THE USER */
+
+import { useState } from 'react';
+// import './../../assets/styles/layouts/form.css';
 
 function ContactForm() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [formSubmitted, setSubmissionMessage] = useState('');
+    const[formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+    // handleChange & handleSubmit FUNCTIONS GO HERE //
+    // handleChange: manages input changes, updating state with user input
+    // handleSubmit: handles form submission, often involves data processing or validation
+
+    const [errors, setErrors] = useState({});
+
+    const handleChange = (event) => {
+        setFormData({  })
+    };
+
+    // VALIDATION REQUIREMENTS //
+    // - Name needs minimum of 3 characters
+    // - Message needs minimum of 50 characters
+    const validate = () => {
+        let tempErrors = {};
+        if (formData.name.length < 3) tempErrors.name = "Name must be at least 3 characters";
+        if (formData.message.length < 50) tempErrors.message = "Message must be at least 50 characters";
+        setErrors(tempErrors);
+        return Object.keys(tempErrors).length === 0;
+    };
+
+    // JSX for the form goes here
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        try {
-            const formData = { name, email, message };
-            const response = await fetch('./../../server/contactForm.php', {
+        if (validate()) {
+            // Submit form logic
+            const response = await fetch('path_to_php_script', {
                 method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-            const data = await response.json();
-            setSubmissionMessage(data.message);
-        } catch (error) {
-            setSubmissionMessage('An error occurred while sending your message.');
         }
-    };      
-
-    if (formSubmitted) {
-        return <div>Thank you for submitting your information. We have processed your account successfully</div>
-    }
-    return (
-        <div className="loginFormContainer">
-            <form onSubmit={handleSubmit}>
-                <h1>What Can We Help You With?</h1>
-
-                <label htmlFor="text">Name</label>
-
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Your Name"
-                    required
-                />
-
-                <label htmlFor="email">Email</label>
-
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Your Email"
-                    required
-                />
-
-                <label htmlFor="message">Your Message</label>
-
-                <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Your Message"
-                    required
-                />
-
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-
-    );
+    };
 }
 
 export default ContactForm;
