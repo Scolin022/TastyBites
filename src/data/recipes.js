@@ -10,7 +10,7 @@ export const recipesData = [
         "image": "test",
         "instructions": "Cook pasta. Mix with eggs and cheese.",
         "cookTime": "30 minutes",
-        "prepTime": "15 minutes"
+        "prepTime": "15 minutes" 
     },
     {
         "id": 4,
