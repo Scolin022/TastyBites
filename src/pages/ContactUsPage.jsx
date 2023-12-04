@@ -6,8 +6,14 @@ import './../assets/styles/base/typography.css';
 
 function ContactPage() {
     return (
-        <div>
-            <ContactForm />
+        <div className="formGridContainer">
+            <div>
+                <h1>Hi,what can we help you with?</h1>
+            </div>
+            <div>
+                <h2>Contact Us</h2>
+                <ContactForm />
+            </div>
         </div>
     );
 }

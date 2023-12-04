@@ -14,6 +14,7 @@ const Header = () => {
             <nav className={styles.navBar}>
                 <Link to="/SavedRecipesPage" className={styles.navLink}>Saved Recipes</Link>
                 <Link to="/LoginPage" className={styles.navLink}>Login</Link>
+                <Link to="/SignUpPage" className={styles.navLink}>Sign Up</Link>
             </nav>
         </header>
     );

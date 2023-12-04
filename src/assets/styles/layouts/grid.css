@@ -10,6 +10,27 @@
         }
 */
 
+/* Center the .formGridContainer within the main .gridContainer */
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Divide the container into four equal columns */
+    grid-template-areas: 
+        "header header header header"
+        "main main main main"
+        "footer footer footer footer";
+    grid-template-rows: auto auto auto; /* Three rows for header, main, and footer */
+}
+
+.formGridContainer {
+    display: grid;
+    grid-column-start: 2; /* Start from the second column line */
+    grid-column-end: 4; /* End at the fourth column line, thus spanning 2nd and 3rd columns */
+    justify-self: center; /* Center the form within the grid area it occupies */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Take up the entire height of the main .gridContainer */
+    grid-area: main; /* Place the form container in the "main" grid area */
+}
+
 .header {
     grid-area: header;
 }
@@ -28,39 +49,6 @@
     grid-row-start: row1-start;
     grid-row-end: 3;
 }
-
-.gridContainer {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "header header header header"
-        /* "main main . sidebar" */
-        "main main main main"
-        "footer footer footer footer";
-    /* grid-template-rows: [row1-start] auto [row1-end] 100px [third-line] auto [last-line]; */
-}
-
-/* .gridContainer {
-    grid-template-columns: [first] 10% [line2] 20% [line3] auto [col4-start] 1fr [five] 1fr [end];
-    grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
-}
-
-.gridItem {
-
-}
-
-.gridItem img {
-
-}
-
-.gridItem h2 {
-
-}
-
-.gridItem p {
-
-} */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

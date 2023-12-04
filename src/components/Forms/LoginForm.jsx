@@ -54,10 +54,9 @@ function LoginForm() {
 
     // JSX for the form
     return (
-        <div className="loginFormContainer">
+        <div className="formContainer">
+            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <h1>Welcome Back!</h1>
-
                 <label htmlFor="username">Username</label>
                 <input
                     type="text"
